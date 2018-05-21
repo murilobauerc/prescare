@@ -7,10 +7,10 @@ const DB_NAME = 'prescare'
 const DB_USER = 'postgres'
 const DB_PASSWORD = 'prescare'
 const DB_HOST = 'localhost'
-
+const routes = require ('./src/routes/routes')
 const tabelaFarmaceutica = require('./public/js/tabelaFarmaceutica')
 const userArray = require('./public/js/userArray')
-const acolhido =require('./public/js/acolhido')
+
 const user = require('./public/js/user')
 const farmacia = require('./public/js/farmacia')
 
@@ -34,17 +34,13 @@ const startApplication = () => {
     .get('/prescricaoAtualizadona', (req, res) => {
       res.render('pages/prescricaoAtualizada', { usuarioArray : userArray})
     })
-    .get('/acolhido', (req, res) => {
-      res.render('pages/info', { acolhido:acolhido })
-    })
+    .get('/acolhido', routes.acolhido)
+    
     .get('/farmaceutica', (req, res) => {
       res.render('pages/farmaceutica', {farmacia : farmacia})
     })
     .get('/edit', (req, res) => {
       res.render('pages/edit', {farmacia : farmacia})
-    })
-    .get('/acolhido', (req, res) => {
-      res.render('pages/info', { acolhido: acolhido })
     })
     .get('/renderiza', (req, res) => {
       res.render('pages/renderiza', { tabelaFarmaceutica : tabelaFarmaceutica})
