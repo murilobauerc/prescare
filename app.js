@@ -22,29 +22,19 @@ const startApplication = () => {
     .set('view engine', 'ejs')
     .set('views/pages', 'tabela-abas')
     .set('port', (process.env.PORT || 3000))
-    .get('/', (req, res) => {
-      res.render('pages/home')
-    })
-    .get('/about', (req, res) => {
-      res.render('pages/about', { usuario: user })
-    })
-    .get('/prescricaoAtualizada', (req, res) => {
-      res.render('pages/prescricaoAtualizada', { tabelaFarmaceutica: tabelaFarmaceutica})
-    })
-    .get('/prescricaoAtualizadona', (req, res) => {
-      res.render('pages/prescricaoAtualizada', { usuarioArray : userArray})
-    })
+
+    .get('/', routes.home)
+    .get('/about', routes.about)
+
+    .get('/prescricaoAtualizada', routes.prescricaoAtualizada)
+
     .get('/acolhido', routes.acolhido)
     
-    .get('/farmaceutica', (req, res) => {
-      res.render('pages/farmaceutica', {farmacia : farmacia})
-    })
-    .get('/edit', (req, res) => {
-      res.render('pages/edit', {farmacia : farmacia})
-    })
-    .get('/renderiza', (req, res) => {
-      res.render('pages/renderiza', { tabelaFarmaceutica : tabelaFarmaceutica})
-    })
+    .get('/farmaceutica', routes.farmaceutica)
+     
+    .get('/edit', routes.farmacia)
+
+  
     .listen(PORT, () => console.log('Servidor iniciado em http://localhost:' + PORT))
 }
 
