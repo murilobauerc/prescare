@@ -5,7 +5,7 @@ const ejs = require('ejs')
 const acolhido = require('./public/js/acolhido.js')
 const Sequelize = require('sequelize')
 const routesInitializer = require ('./src/routes')
-const modelsInitializer = require ('./src/models')
+const modelsInitializer = require ('./src/models/')
 
 const tabelaFarmaceutica = require('./src/mocks/tabelaFarmaceutica')
 const usuarios = require('./src/mocks/userArray')
@@ -18,9 +18,10 @@ const databaseConnection = new Sequelize(settings.DB_NAME, settings.DB_USER, set
   dialect: 'postgres'
 })
 
+const models = modelsInitializer(databaseConnection)
+const routes = routesInitializer(models)
+
 const startApplication = () => {
-  const models = modelsInitializer(databaseConnection)
-  const routes = routesInitializer(models)
 
   app
     .use(expressLayouts)
@@ -40,7 +41,6 @@ const startApplication = () => {
     })
 
     .set('views/pages', 'tabela-abas')
-    .set('port', (process.env.PORT || 3000))
     .get('/', routes.home)
     .get('/about', routes.about)
     .get('/acolhidas', routes.listChildren)
@@ -50,6 +50,34 @@ const startApplication = () => {
     .listen(settings.PORT, () => console.log('Servidor iniciado em http://localhost:' + settings.PORT))
 }
 
+const criaExemplos = () => {
+
+  const {Acolhido, Medicamento, Prescricao} = modelsInitializer(databaseConnection)
+  let date = new Date
+
+  Acolhido.create({
+    nome: 'Anderson Claiton Damacena',
+    idade: 41,
+    peso: 65,
+    alergias: 'nenhuma',
+    viaAlimentacao: 'oral'
+  }
+  // ,
+  // {
+  //   nome: 'Andrielly Cortes da Silva Correa',
+  //   idade: 5,
+  //   peso: 20,
+  //   alergias: 'nenhuma',
+  //   viaAlimentacao: 'oral'
+  // }
+)
+
+  Medicamento.create({
+    nome: 'Paracetamal',
+    via: 'oral',
+    formaFarmaceutica: 'comprimido'
+  })
+}
 
 databaseConnection
  .sync()
