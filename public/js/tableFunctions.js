@@ -22,27 +22,31 @@ let Table = (tableContainer) => ({
 
     initializeButton() {
         tableContainer.getElementsByClassName('js-add').item(0).addEventListener('click', () => {
-            let novoMedicamento = this.novoElForm.getElementsByClassName('js-novo-medicamento').item(0).value
-            let novoVia = this.novoElForm.getElementsByClassName('js-novo-via').item(0).value
-            let novoIntervalo = this.novoElForm.getElementsByClassName('js-novo-intervalo').item(0).value
-            let novoFormaFarmaceutica = this.novoElForm.getElementsByClassName('js-novo-forma-farmaceutica').item(0).value
-            this.appendRow(this.createRow(novoMedicamento.toUpperCase(), novoVia.toUpperCase(), novoIntervalo.toUpperCase(), novoFormaFarmaceutica.toUpperCase()))
+            let novoMedicamento = this.novoElForm.querySelector('.js-novo-medicamento').value
+            let novoVia = this.novoElForm.querySelector('.js-novo-via').value
+            let novoIntervalo = this.novoElForm.querySelector('.js-novo-intervalo').value
+            let novoFormaFarmaceutica = this.novoElForm.querySelector('.js-novo-forma-farmaceutica').value
+            let novoObservacao = this.novoElForm.querySelector('.js-novo-observacao').value
+            let novoDataDePrescricao = this.novoElForm.querySelector('.js-novo-data-de-prescricao').value
+            this.appendRow(this.createRow(novoMedicamento.toUpperCase(), novoVia.toUpperCase(), novoIntervalo.toUpperCase(), novoFormaFarmaceutica.toUpperCase(), novoObservacao.toUpperCase(), novoDataDePrescricao.toUpperCase()))
 
-        let clearMed = document.getElementsByClassName('js-novo-medicamento')
-        clearMed[0].value = ""
+            const clearAllInputs = (inputList) => inputList.forEach(input => input.value = "")
 
-        let clearVia = document.getElementsByClassName('js-novo-via')
-        clearVia[0].value = ""
+            const inputsByClassName = (className) => () => [...document.querySelectorAll(className)]
 
-        let clearInter = document.getElementsByClassName('js-novo-intervalo')
-        clearInter[0].value = ""
+            const clearMed = inputsByClassName('.js-novo-medicamento');
+            const clearVia = inputsByClassName('.js-novo-via');
+            const clearInter = inputsByClassName('.js-novo-intervalo');
+            const clearForma = inputsByClassName('.js-novo-forma-farmaceutica');
+            const clearObs = inputsByClassName('.js-novo-observacao');
+            const clearData = inputsByClassName('.js-novo-data-de-prescricao');
 
-        let clearForma = document.getElementsByClassName('js-novo-forma-farmaceutica')
-        clearForma[0].value = ""
+            [clearMed(), clearVia(), clearInter(), clearForma(), clearObs(), clearData()]
+                .forEach(clearAllInputs)
         })
     },
 
-    createRow(novoMedicamento, novoVia, novoIntervalo, novoFormaFarmaceutica) {
+    createRow(novoMedicamento, novoVia, novoIntervalo, novoFormaFarmaceutica, novoObservacao, novoDataDePrescricao, ) {
         let row = document.createElement('tr')
 
         for (let arg of arguments) {
@@ -53,5 +57,6 @@ let Table = (tableContainer) => ({
 
         return row
     },
-    
+
+
 })

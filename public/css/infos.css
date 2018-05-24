@@ -1,20 +1,23 @@
+
 .flex-container {
     display: flex;
     flex-flow: row wrap;
 }
 
 .foto-acolhido{
-    width: 100px;
-    height: 100px;
+    height: 16vh;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
 }
 
 .img-acolhido {
     background-color: #81b4db;
     border-radius: 12px;
-    flex-grow: 2;
-    align-items: center;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    flex-grow: 1;
+    width: 0%; 
+    height: 18vh; 
+    text-align: center;
 }
 
 .inf {
@@ -24,13 +27,13 @@
     align-items: stretch;
 }
 
-.text {
-    
+.text { 
     margin: 1vh;
 }
 
 .bold {
     font-weight: bold;
+    
 }
 .atualiza {
     color: grey;
@@ -38,20 +41,22 @@
 }
 
 .box {
-    position: static;
     border-radius: 12px;
     width:63%;
     height:18vh;
     background:#FFF;
     margin: auto;
+    height:20vh;
+    background:#FFF;
     padding-top:10px;
     padding-left: 10px;
+
 }
 
 .effect1 {
 	-webkit-box-shadow: 0 10px 6px -6px #777;
 	   -moz-box-shadow: 0 10px 6px -6px #777;
-	        box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
 }
 
 .tiracor {
