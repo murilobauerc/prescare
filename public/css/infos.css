@@ -3,21 +3,23 @@
     flex-flow: row wrap;
 }
 
-.foto-acolhido {
+.img-acolhido {
     align-items: center;
     border-radius: 50%;
-    height: 16vh;
-    min-height: 60px;
+    height: 15vh;
+    min-height: 50px;
     padding: 10px;
     width: auto; 
 }
 
-.img-acolhido {
-    background-color: #81b4db;
-    border-radius: 12px;
-    flex-grow: 1; 
-    text-align: center;
-    margin: 2vh;
+.div-img-acolhido {
+  align-items: center;
+  background-color: #81b4db;
+  border-radius: 12px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding: 1vh;
 }
 
 .inf {
@@ -44,7 +46,7 @@
     margin: auto;
     min-height: fit-content;
     padding: 1vh;
-    width: 63%;
+    width: 80%;
 }
 
 .effect1 {
