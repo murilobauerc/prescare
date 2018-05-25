@@ -105,17 +105,14 @@ td.medicamento {
 }
 
 .acao-botao {
-  margin-left: 103vh;
-  margin-top: 45vh;
-  position: absolute;
-  text-align: center;  
-  width: 35vh;
+  min-width: fit-content;
 }
 
 .botao-historico {
   margin-left: -15vh;
   margin-top: 2vh;
   width: 8.5vh;
+  
 }
 
 .panel {
