@@ -5,7 +5,7 @@ const ejs = require('ejs')
 const acolhido = require('./public/js/acolhido.js')
 const Sequelize = require('sequelize')
 const routesInitializer = require ('./src/routes')
-const modelsInitializer = require ('./src/models/')
+const modelsInitializer = require ('./src/models-database/')
 
 const tabelaFarmaceutica = require('./src/mocks/tabelaFarmaceutica')
 const usuarios = require('./src/mocks/userArray')
@@ -33,9 +33,6 @@ const startApplication = () => {
     .get('/pesquisar', (req, res) => {
       res.render('pages/pesquisaAcolhidos')
     })
-    .get('/historico', (req, res) => {
-      res.render('pages/historicoPrescricao')
-    })
     .get('/teste', (req,res) => {
       res.render('pages/testeBanco')
     })
@@ -47,6 +44,7 @@ const startApplication = () => {
     .get('/acolhido', routes.acolhido)
     .get('/prescricaoAtualizada', routes.prescricaoAtualizada)
     .get('/farmaceutica', routes.farmaceutica)
+    .get('/historico-prescricao', routes.historicoPrescricao)
     .listen(settings.PORT, () => console.log('Servidor iniciado em http://localhost:' + settings.PORT))
 }
 
@@ -62,14 +60,14 @@ const criaExemplos = () => {
     alergias: 'nenhuma',
     viaAlimentacao: 'oral'
   }
-  // ,
-  // {
-  //   nome: 'Andrielly Cortes da Silva Correa',
-  //   idade: 5,
-  //   peso: 20,
-  //   alergias: 'nenhuma',
-  //   viaAlimentacao: 'oral'
-  // }
+  ,
+  {
+    nome: 'Andrielly Cortes da Silva Correa',
+    idade: 5,
+    peso: 20,
+    alergias: 'nenhuma',
+    viaAlimentacao: 'oral'
+  }
 )
 
   Medicamento.create({
@@ -77,6 +75,14 @@ const criaExemplos = () => {
     via: 'oral',
     formaFarmaceutica: 'comprimido'
   })
+
+  // Prescricaos.create({
+  //   intervalo: '1h'
+  // })
+  
+  // Prescricaos.create({
+  //   intervalo: '2h'
+  // })
 }
 
 databaseConnection
