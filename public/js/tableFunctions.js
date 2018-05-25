@@ -22,13 +22,12 @@ let Table = (tableContainer) => ({
 
     initializeButton() {
         tableContainer.getElementsByClassName('js-add').item(0).addEventListener('click', () => {
-            let $ = document.querySelector.bind(document)
-            let novoMedicamento = this.novoElForm.$('.js-novo-medicamento').value
-            let novoVia = this.novoElForm.$('.js-novo-via').value
-            let novoIntervalo = this.novoElForm.$('.js-novo-intervalo').value
-            let novoFormaFarmaceutica = this.novoElForm.$('.js-novo-forma-farmaceutica').value
-            let novoObservacao = this.novoElForm.$('.js-novo-observacao').value
-            let novoDataDePrescricao = this.novoElForm.$('.js-novo-data-de-prescricao').value
+            let novoMedicamento = this.novoElForm.querySelector('.js-novo-medicamento').value
+            let novoVia = this.novoElForm.querySelector('.js-novo-via').value
+            let novoIntervalo = this.novoElForm.querySelector('.js-novo-intervalo').value
+            let novoFormaFarmaceutica = this.novoElForm.querySelector('.js-novo-forma-farmaceutica').value
+            let novoObservacao = this.novoElForm.querySelector('.js-novo-observacao').value
+            let novoDataDePrescricao = this.novoElForm.querySelector('.js-novo-data-de-prescricao').value
             this.appendRow(this.createRow(novoMedicamento.toUpperCase(), novoVia.toUpperCase(), novoIntervalo.toUpperCase(), novoFormaFarmaceutica.toUpperCase(), novoObservacao.toUpperCase(), novoDataDePrescricao.toUpperCase()))
 
             const clearAllInputs = (inputList) => inputList.forEach(input => input.value = "")

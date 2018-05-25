@@ -1,6 +1,10 @@
-@import url(https://fonts.google.com/specimen/Open+Sans);
 * {
   margin: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 .logout{
@@ -30,11 +34,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-<<<<<<< Updated upstream
-  margin-bottom: 5vh;
-=======
   margin-bottom: 6vh;
->>>>>>> Stashed changes
 }
 
 .footer {
@@ -42,20 +42,13 @@
   font-size: 3em;
   text-align: center;
   position:fixed;
-<<<<<<< Updated upstream
   font-family: 'Amatic SC', cursive;
-=======
->>>>>>> Stashed changes
   font-weight: bold;
   margin-top: 4vh;
 }
 
 .logo {
-<<<<<<< Updated upstream
-  width: 72%;
-=======
   width: 22vh;
->>>>>>> Stashed changes
   padding-left: 2%;
 }
 
@@ -67,10 +60,7 @@
 }
 
 .botao-sair {
-<<<<<<< Updated upstream
   font-family: 'Amatic SC', cursive;
-=======
->>>>>>> Stashed changes
   font-size: 1.8em;
   font-weight: bold;
   padding-right: 3vh;
@@ -96,10 +86,6 @@
   border-collapse: collapse;
   width: 55vw;
   font-family: 'Open Sans', sans-serif;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 }
 
 .tablesfarmaceutica td, .tablesfarmaceutica th {
