@@ -1,13 +1,13 @@
 const prescr = require("../../src/routes/farmaceutica")
 
 describe('Quando acesso a pagina da farmaceutica', () => {
-    it('Deve mostrar uma prescricao com complementacoes', () => {
+    it('Deve mostrar uma prescricao com complementacoes', (done) => {
         const Prescricao = {
             findAll:jest.fn()
         }
         const req = {}
         const res = {render : jest.fn()}
-        const farmacia = [{ nomeMedicamento: 'Busonide' }, { via: 'Oral' } ]
+        const farmacia = [{ nomeMedicamento: 'Paracetamal' }, { via: 'oral' } ]
         
         Prescricao.findAll.mockResolvedValue(farmacia)
 
