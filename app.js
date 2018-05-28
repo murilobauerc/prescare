@@ -49,39 +49,25 @@ const startApplication = () => {
 }
 
 const criaExemplos = () => {
-
-  const {Acolhido, Medicamento, Prescricao} = modelsInitializer(databaseConnection)
-  let date = new Date
-
-  Acolhido.create(
-    {
+  models.Acolhido.create({
     nome: 'Anderson Claiton Damacena',
     idade: 41,
     peso: 65,
     alergias: 'nenhuma',
     viaAlimentacao: 'oral'
-  }
-  ,
-  {
-    nome: 'Andrielly Cortes da Silva Correa',
-    idade: 5,
-    peso: 20,
-    alergias: 'nenhuma',
-    viaAlimentacao: 'oral'
-  }
-)
-
-  Medicamento.create({
-    nome: 'Paracetamal',
-    via: 'oral',
-    formaFarmaceutica: 'comprimido'
+  }).then(acolhido => {
+    models.Medicamento.create({
+      nome: 'Paracetamal',
+      via: 'oral',
+      formaFarmaceutica: 'comprimido'
+    }).then(medicamento => {
+      models.Prescricao.create({
+        intervalo: '2h',
+        acolhidoId: acolhido.id,
+        medicamentoId: medicamento.id
+      })
+    })
   })
-
-  Prescricao.create({
-     intervalo: '2h',
-     acolhidoId: 71,
-     medicamentoId: 2
-   })
 }
 
 databaseConnection

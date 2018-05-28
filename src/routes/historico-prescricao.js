@@ -1,4 +1,3 @@
-
 const historicoPrescricao = (Prescricao, Acolhido) => (req, res) => { 
   console.log("entrou historico-prescricao.js")  
   return Prescricao
