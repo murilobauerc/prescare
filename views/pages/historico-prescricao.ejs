@@ -15,7 +15,9 @@
 					<%for (historicoPrescricao of historicoPrescricoes){%>
 						<li>
 							<a href="histP.html">
-								<%= historicoPrescricoes.intervalo %>
+								<%= historicoPrescricao.medicamentoId %>
+								<%= historicoPrescricao.intervalo %>
+								<%= historicoPrescricao.acolhidoId %>
 							</a>
 						</li>
 					<%}%>

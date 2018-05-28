@@ -53,7 +53,8 @@ const criaExemplos = () => {
   const {Acolhido, Medicamento, Prescricao} = modelsInitializer(databaseConnection)
   let date = new Date
 
-  Acolhido.create({
+  Acolhido.create(
+    {
     nome: 'Anderson Claiton Damacena',
     idade: 41,
     peso: 65,
@@ -76,13 +77,11 @@ const criaExemplos = () => {
     formaFarmaceutica: 'comprimido'
   })
 
-  // Prescricaos.create({
-  //   intervalo: '1h'
-  // })
-  
-  // Prescricaos.create({
-  //   intervalo: '2h'
-  // })
+  Prescricao.create({
+     intervalo: '2h',
+     acolhidoId: 71,
+     medicamentoId: 2
+   })
 }
 
 databaseConnection

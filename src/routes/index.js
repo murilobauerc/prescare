@@ -19,7 +19,7 @@ const allRoutes = models => ({
   acolhido: acolhido(acolhidos),
   prescricaoAtualizada: prescricaoAtualizada(tabelaFarmaceutica),
   farmaceutica : farmaceutica(dadosFarmacia),
-  historicoPrescricao : historicoPrescricao(models.Prescricao)
+  historicoPrescricao : historicoPrescricao(models.Prescricao, models.Acolhido)
 
 })
 
