@@ -3,8 +3,8 @@ const expressLayouts = require('express-ejs-layouts')
 const ejs = require('ejs')
 const acolhido = require('./public/js/acolhido.js')
 const Sequelize = require('sequelize')
-const routesInitializer = require ('./src/routes')
-const modelsInitializer = require ('./src/models')
+const routesInitializer = require('./src/routes')
+const modelsInitializer = require('./src/models')
 
 const tabelaFarmaceutica = require('./src/mocks/tabelaFarmaceutica')
 const usuarios = require('./src/mocks/userArray')
@@ -32,10 +32,7 @@ const startApplication = () => {
     .get('/pesquisar', (req, res) => {
       res.render('pages/pesquisaAcolhidos')
     })
-    .get('/historico', (req, res) => {
-      res.render('pages/historicoPrescricao')
-    })
-    .get('/teste', (req,res) => {
+    .get('/teste', (req, res) => {
       res.render('pages/testeBanco')
     })
 
@@ -47,12 +44,54 @@ const startApplication = () => {
     .get('/acolhido', routes.acolhido)
     .get('/prescricaoAtualizada', routes.prescricaoAtualizada)
     .get('/farmaceutica', routes.farmaceutica)
+    .get('/historico-prescricao', routes.historicoPrescricao)
     .listen(settings.PORT, () => console.log('Servidor iniciado em http://localhost:' + settings.PORT))
 }
 
+const criaExemplos = () => {
 
+  const { Acolhido, Medicamento, Prescricao } = modelsInitializer(databaseConnection)
+  let date = new Date
+
+  // Acolhido.create({
+  //   nomeAcolhido: 'Anderson Claiton Damacena',
+  //   idade: 41,
+  //   peso: 65,
+  //   alergias: 'nenhuma',
+  //   viaAlimentacao: 'oral'
+  // }
+  //   ,
+  //   {
+  //     nomeAcolhido: 'Andrielly Cortes da Silva Correa',
+  //     idade: 5,
+  //     peso: 20,
+  //     alergias: 'nenhuma',
+  //     viaAlimentacao: 'oral'
+  //   }
+  // )
+
+  // Medicamento.create({
+  //   nomeMedicamento: 'Paracetamal',
+  //   via: 'oral',
+  //   formaFarmaceutica: 'comprimido',
+  //   validade: '25/02/2019',
+  //   lote: '123456'
+
+  // })
+
+  // Prescricao.create({
+  //   intervalo: '16-16h',
+  //   horario:'8h 16h',
+  //   dispensacao: false,
+  //   checkTecnico: false,
+  //   acolhidoId:5,
+  //   medicamentoId:3,
+  // })
+
+
+}
 databaseConnection
- .sync()
-//  .then(criaExemplos)
- .then(startApplication)
- .catch(console.log)
+  .sync()
+  .then(criaExemplos)
+  .then(startApplication)
+  .catch(console.log)

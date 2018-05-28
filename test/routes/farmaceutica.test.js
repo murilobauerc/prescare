@@ -1,14 +1,20 @@
-const prescr = require("../../src/routes/complementoFarmaceutica")
+const prescr = require("../../src/routes/farmaceutica")
 
 describe('Quando acesso a pagina da farmaceutica', () => {
     it('Deve mostrar uma prescricao com complementacoes', () => {
+        const Prescricao = {
+            findAll:jest.fn()
+        }
         const req = {}
         const res = {render : jest.fn()}
-        const farmacia = [{ medicamentos: 'Busonide' }, { via: 'Oral' } ]
+        const farmacia = [{ nomeMedicamento: 'Busonide' }, { via: 'Oral' } ]
         
-        prescr(farmacia)(req,res)
-        
-        expect(res.render).toBeCalledWith('pages/farmaceutica', { farmacia } )
+        Prescricao.findAll.mockResolvedValue(farmacia)
+
+        return prescr(Prescricao)(req,res)
+        .then(()=> expect(res.render).toBeCalledWith('pages/farmaceutica',{farmacia}))
+        .then(done)
+        .catch(done)
     })
 })
 
