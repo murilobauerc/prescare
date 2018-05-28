@@ -25,10 +25,9 @@ const startApplication = () => {
     .listen(settings.PORT, () => console.log('Servidor iniciado em http://localhost:' + settings.PORT))
 }
 
-const databaseClient = new Sequelize(settings.DB_NAME, settings.DB_USER, settings.DB_PASSWORD, {
-  host: settings.DB_HOST,
-  dialect: 'postgres'
-})
+
+
+const databaseClient = new Sequelize(settings.DATABASE_URL, {dialect: 'postgres'})
 
 databaseClient
   .sync()
