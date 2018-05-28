@@ -104,20 +104,34 @@ td.medicamento {
   margin-right: auto;
 }
 
-.acao-botao {
-  min-width: fit-content;
-}
-
-.botao-historico {
-  margin-left: -15vh;
-  margin-top: 2vh;
-  width: 8.5vh;
-  
-}
-
 .panel {
   background-color: #f0e68b;
   display: none;
   padding: 10px 0;
   overflow: hidden;
+}
+
+
+.acao-botao {
+  transform: translate(79%, -50%);
+}
+
+.button {
+  border-radius: 15%;
+  background: #fff;
+  border: 2px solid #407caa;
+  color:#407caa;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.botao-historico {
+  transform: translate(-20%, 19%);
+}
+
+.button:hover {
+    color:white;
+    background: #81b4db;
+    border: 2px solid #fff;
 }
