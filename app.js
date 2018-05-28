@@ -50,6 +50,7 @@ const startApplication = () => {
 
 const criaExemplos = () => {
   models.Acolhido.create({
+    acolhidoId: 1,
     nome: 'Anderson Claiton Damacena',
     idade: 41,
     peso: 65,
@@ -57,14 +58,15 @@ const criaExemplos = () => {
     viaAlimentacao: 'oral'
   }).then(acolhido => {
     models.Medicamento.create({
+      medicamentoId: 1,
       nome: 'Paracetamal',
       via: 'oral',
       formaFarmaceutica: 'comprimido'
     }).then(medicamento => {
       models.Prescricao.create({
         intervalo: '2h',
-        acolhidoId: acolhido.id,
-        medicamentoId: medicamento.id
+        acolhidoId: 1,
+        medicamentoId: 1
       })
     })
   })
