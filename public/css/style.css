@@ -112,9 +112,9 @@ td.medicamento {
 }
 
 
-.acao-botao {
+/* .acao-botao {
   transform: translate(79%, -50%);
-}
+} */
 
 .button {
   border-radius: 15%;
@@ -126,9 +126,7 @@ td.medicamento {
   font-weight: bold;
 }
 
-.botao-historico {
-  transform: translate(-20%, 19%);
-}
+
 
 .button:hover {
     color:white;

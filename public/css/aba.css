@@ -5,8 +5,9 @@
 }
 
 .tabs-container {
+  position: relative;
   height: 50vh;
-  transform: translate(-20%, 19%);
+  /* transform: translate(-20%, 19%); */
 }
 
 .input-prescricao {
@@ -19,7 +20,7 @@
   color: #444;
   overflow-y: auto; 
   padding: 10px;
-  min-width: fit-content;
+  /* min-width: fit-content; */
 }
 
 .scroll::-webkit-scrollbar {
