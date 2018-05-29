@@ -2,22 +2,23 @@
 <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/css/historicoPrescricao.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 <div class="lista">
-	<div class="titulo">Histórico Prescrições Afonso</div>
+	<div class="titulo">Histórico Prescrições <%= acolhido.nome %> </div>
 	<div class="botao"><input type="button" value="Voltar"></div>
 </div>
 
 <div id="accordion">
 	<h3 class="titulo-data">12/06/2017 à 19/06/2017</h3>
 	<div class="tela-historico">
-			<ul class="lista-acolhidos">
-					<%for (historicoPrescricao of historicoPrescricoes){%>
+		<%for (historicoPrescricao of historicoPrescricoes){%>
+		<ul class="lista-acolhidos">
 						<li>
 							<a href="histP.html">
-								<%= historicoPrescricao.medicamentoId %>
+								<%= historicoPrescricao.id %>
 								<%= historicoPrescricao.intervalo %>
-								<%= historicoPrescricao.acolhidoId %>
+								<%= historicoPrescricao.acolhido_id %>
 							</a>
 						</li>
 					<%}%>

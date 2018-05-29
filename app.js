@@ -41,7 +41,8 @@ const startApplication = () => {
     .get('/', routes.home)
     .get('/about', routes.about)
     .get('/acolhidas', routes.listChildren)
-    .get('/acolhido', routes.acolhido)
+    .get('/acolhido/', routes.acolhido)
+    .get('/acolhido/:id/historico_prescricao', routes.historicoPrescricao)
     .get('/prescricaoAtualizada', routes.prescricaoAtualizada)
     .get('/farmaceutica', routes.farmaceutica)
     .get('/historico-prescricao', routes.historicoPrescricao)
@@ -50,23 +51,22 @@ const startApplication = () => {
 
 const criaExemplos = () => {
   models.Acolhido.create({
-    acolhidoId: 1,
-    nome: 'Anderson Claiton Damacena',
-    idade: 41,
-    peso: 65,
-    alergias: 'nenhuma',
-    viaAlimentacao: 'oral'
+    nome: 'Batatinha dois',
+    idade: 15,
+    peso: 12.4,
+    alergias: 'Todas, vai morre',
+    viaAlimentacao: 'Braçal'
   }).then(acolhido => {
-    models.Medicamento.create({
-      medicamentoId: 1,
-      nome: 'Paracetamal',
-      via: 'oral',
-      formaFarmaceutica: 'comprimido'
-    }).then(medicamento => {
-      models.Prescricao.create({
-        intervalo: '2h',
-        acolhidoId: 1,
-        medicamentoId: 1
+    models.Prescricao.create({
+      intervalo: '2h'
+    }).then(prescricao => {
+      models.Medicamento.create({
+        nome: 'Paracetamol 500mg',
+        via: 'Oi',
+        formaFarmaceutica: 'Batata Doce + Frango'
+      }).then(medicamento => {
+        prescricao.addMedicamento(medicamento)
+        acolhido.addPrescricao(prescricao)
       })
     })
   })

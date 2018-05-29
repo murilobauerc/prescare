@@ -1,15 +1,15 @@
+const Sequelize = require('sequelize')
+
 const historicoPrescricao = (Prescricao, Acolhido) => (req, res) => { 
-  console.log("entrou historico-prescricao.js")  
-  return Prescricao
-    .findAll({
-      include: [{
-        model: Acolhido
-      }]
-    })
-    .then(historicoPrescricoes => {
-    res.render('pages/historico-prescricao', { historicoPrescricoes })
+  return Acolhido.find({
+    where: {
+      id: req.params.id
+    },
+    include: [ Prescricao ]
+  }).then(acolhido => {
+    console.log(acolhido)
+    res.render('pages/historico-prescricao',{historicoPrescricoes : acolhido.prescricaos, acolhido : acolhido})
   })
-    .catch(console.log)   
 }
 
 module.exports = historicoPrescricao

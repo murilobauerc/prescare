@@ -1,7 +1,7 @@
 const sequelize = require('sequelize')
 
 module.exports = db => db.define('acolhido', {
-  acolhidoId: {
+  id: {
     type: sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
@@ -11,4 +11,6 @@ module.exports = db => db.define('acolhido', {
   peso: sequelize.FLOAT,
   alergias: sequelize.STRING,
   viaAlimentacao: sequelize.STRING
+}, {
+  underscored: true
 })
