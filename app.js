@@ -41,6 +41,8 @@ const startApplication = () => {
     .listen(settings.PORT, () => console.log('Servidor iniciado em http://localhost:' + settings.PORT))
 }
 
+
+
 databaseConnection
   .sync()
   .then(startApplication)
