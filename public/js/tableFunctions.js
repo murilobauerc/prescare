@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
     let tables = document.getElementsByClassName('js-table-container')
 
-
     for (let table of tables) {
         let tableObj = Table(table)
         tableObj.initializeButton()
@@ -9,7 +8,6 @@ window.addEventListener('load', () => {
     }
 
 })
-
 
 let Table = (tableContainer) => ({
     tableContainer: tableContainer,
