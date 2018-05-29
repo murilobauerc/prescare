@@ -53,40 +53,40 @@ const criaExemplos = () => {
   const { Acolhido, Medicamento, Prescricao } = modelsInitializer(databaseConnection)
   let date = new Date
 
-  Acolhido.create({
-    nomeAcolhido: 'Anderson Claiton Damacena',
-    idade: 41,
-    peso: 65,
-    alergias: 'nenhuma',
-    viaAlimentacao: 'oral'
-  }
-    ,
-    {
-      nomeAcolhido: 'Andrielly Cortes da Silva Correa',
-      idade: 5,
-      peso: 20,
-      alergias: 'nenhuma',
-      viaAlimentacao: 'oral'
-    }
-  )
+  // Acolhido.create({
+  //   nomeAcolhido: 'Anderson Claiton Damacena',
+  //   idade: 41,
+  //   peso: 65,
+  //   alergias: 'nenhuma',
+  //   viaAlimentacao: 'oral'
+  // }
+  //   ,
+  //   {
+  //     nomeAcolhido: 'Andrielly Cortes da Silva Correa',
+  //     idade: 5,
+  //     peso: 20,
+  //     alergias: 'nenhuma',
+  //     viaAlimentacao: 'oral'
+  //   }
+  // )
 
-  Medicamento.create({
-    nomeMedicamento: 'Paracetamal',
-    via: 'oral',
-    formaFarmaceutica: 'comprimido',
-    validade: '25/02/2019',
-    lote: '123456'
+  // Medicamento.create({
+  //   nomeMedicamento: 'Paracetamal',
+  //   via: 'oral',
+  //   formaFarmaceutica: 'comprimido',
+  //   validade: '25/02/2019',
+  //   lote: '123456'
 
-  })
+  // })
 
-  Prescricao.create({
-    intervalo: '16-16h',
-    horario: '8h 16h',
-    dispensacao: false,
-    checkTecnico: false,
-    acolhidoId: 5,
-    medicamentoId: 3,
-  })
+  // Prescricao.create({
+  //   intervalo: '16-16h',
+  //   horario: '8h 16h',
+  //   dispensacao: false,
+  //   checkTecnico: false,
+  //   acolhidoId: 5,
+  //   medicamentoId: 3,
+  // })
 
 
 }
