@@ -12,28 +12,28 @@
     </div>
 
 
-    <%for (prescricaoFarmacia of farmacia){%>
+    <%for (farmacia of prescricaoFarmacia){%>
         <tr>
             <td class="medicamento">
-                <%=prescricaoFarmacia.nomeMedicamento%>
+                <%=farmacia.nomeMedicamento%>
             </td>
             <td>
-                <%=prescricaoFarmacia.via%>
+                <%=farmacia.via%>
             </td>
             <td>
-                <%=prescricaoFarmacia.intervalo%>
+                <%=prescricao.intervalo%>
             </td>
             <td>
-                <%=prescricaoFarmacia.formaFarmaceutica%>
+                <%=farmacia.formaFarmaceutica%>
             </td>
             <td>
-                <%=prescricaoFarmacia.horario%>
+                <%=prescricao.horario%> 
             </td>
             <td>
-                <%=prescricaoFarmacia.lote%>
+                <%=farmacia.lote%>
             </td>
             <td>
-                <%=prescricaoFarmacia.validade%>
+                <%=farmacia.validade%>
             </td>
             <td>
                 <div class="input">

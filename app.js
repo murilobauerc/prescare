@@ -44,46 +44,28 @@ const startApplication = () => {
 }
 
 const criaExemplos = () => {
-
-  const { Acolhido, Medicamento, Prescricao } = modelsInitializer(databaseConnection)
-  let date = new Date
-
-  // Acolhido.create({
-  //   nomeAcolhido: 'Anderson Claiton Damacena',
-  //   idade: 41,
-  //   peso: 65,
-  //   alergias: 'nenhuma',
-  //   viaAlimentacao: 'oral'
-  // }
-  //   ,
-  //   {
-  //     nomeAcolhido: 'Andrielly Cortes da Silva Correa',
-  //     idade: 5,
-  //     peso: 20,
-  //     alergias: 'nenhuma',
-  //     viaAlimentacao: 'oral'
-  //   }
-  // )
-
-  // Medicamento.create({
-  //   nomeMedicamento: 'Paracetamal',
-  //   via: 'oral',
-  //   formaFarmaceutica: 'comprimido',
-  //   validade: '25/02/2019',
-  //   lote: '123456'
-
-  // })
-
-  // Prescricao.create({
-  //   intervalo: '16-16h',
-  //   horario: '8h 16h',
-  //   dispensacao: false,
-  //   checkTecnico: false,
-  //   acolhidoId: 1,
-  //   medicamentoId: 1,
-  // })
-
+  models.Acolhido.create({
+    nome: 'Batatinha dois',
+    idade: 15,
+    peso: 12.4,
+    alergias: 'Todas, vai morre',
+    viaAlimentacao: 'Braçal'
+  }).then(acolhido => {
+    models.Prescricao.create({
+      intervalo: '2h'
+    }).then(prescricao => {
+      models.Medicamento.create({
+        nome: 'Paracetamol 500mg',
+        via: 'Oi',
+        formaFarmaceutica: 'Batata Doce + Frango'
+      }).then(medicamento => {
+        prescricao.addMedicamento(medicamento)
+        acolhido.addPrescricao(prescricao)
+      })
+    })
+  })
 }
+
 databaseConnection
   .sync()
   .then(criaExemplos)
