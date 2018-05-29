@@ -51,19 +51,19 @@ const startApplication = () => {
 
 const criaExemplos = () => {
   models.Acolhido.create({
-    nome: 'Batatinha dois',
+    nome: 'Afonso',
     idade: 15,
     peso: 12.4,
-    alergias: 'Todas, vai morre',
-    viaAlimentacao: 'Braçal'
+    alergias: 'nenhuma',
+    viaAlimentacao: 'oral'
   }).then(acolhido => {
     models.Prescricao.create({
       intervalo: '2h'
     }).then(prescricao => {
       models.Medicamento.create({
         nome: 'Paracetamol 500mg',
-        via: 'Oi',
-        formaFarmaceutica: 'Batata Doce + Frango'
+        via: 'oral',
+        formaFarmaceutica: 'comprimido'
       }).then(medicamento => {
         prescricao.addMedicamento(medicamento)
         acolhido.addPrescricao(prescricao)

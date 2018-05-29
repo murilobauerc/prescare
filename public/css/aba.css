@@ -6,7 +6,7 @@
 .tabs-container {
   position: relative;  
   height: 50vh;
-  width: 800px;
+  width: 100%;
   line-height: 1.5; 
 }
 
@@ -63,6 +63,7 @@ input.tabs + label + div {
   transition: opacity ease-in-out .3s;
   border: 2px solid #407caa;
   height: auto;
+  
 }
 
 input.tabs:checked + label + div {

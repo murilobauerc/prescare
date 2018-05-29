@@ -5,10 +5,8 @@
 }
 
 .logout{
-  color: #fff;
-  
+  color: #fff; 
 }
-
 
 .logout:hover{
   color: #407caa;
@@ -76,7 +74,7 @@
 
 .main {
   height: 90vh;
-  width: 50vw;
+  width: 65vw;
   margin: 0 auto;
   padding-top: 20px;
 }
