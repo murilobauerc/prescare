@@ -81,11 +81,11 @@ const criaExemplos = () => {
 
   Prescricao.create({
     intervalo: '16-16h',
-    horario:'8h 16h',
+    horario: '8h 16h',
     dispensacao: false,
     checkTecnico: false,
-    acolhidoId:5,
-    medicamentoId:3,
+    acolhidoId: 5,
+    medicamentoId: 3,
   })
 
 
