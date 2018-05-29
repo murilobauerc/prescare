@@ -1,4 +1,4 @@
-const listChildren = require('../routes/listChildren')
+const listaAcolhidos = require('../routes/listaAcolhidos')
 const home = require('../routes/home')
 const about = require('../routes/about')
 const acolhido = require('../routes/acolhido')
@@ -13,14 +13,13 @@ const dadosFarmacia = require('../mocks/farmacia')
 
 
 const allRoutes = models => ({
-  listChildren: listChildren(models.Acolhido),
   home: home(),
   about: about(user),
   acolhido: acolhido(acolhidos),
+  listaAcolhidos: listaAcolhidos(models.Acolhido),
   prescricaoAtualizada: prescricaoAtualizada(tabelaFarmaceutica),
   farmaceutica : farmaceutica(models.Prescricao),
   historicoPrescricao : historicoPrescricao(models.Prescricao)
-
 })
 
 module.exports = allRoutes
