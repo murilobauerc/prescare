@@ -34,7 +34,7 @@ const startApplication = () => {
     .get('/acolhido/:id', routes.acolhido)
     .get('/farmaceutica', routes.farmaceutica)
     .get('/lista-acolhidos', routes.listaAcolhidos)
-    .get('/pesquisar',routes.pesquisar)
+    .get('/pesquisar/:nome',routes.pesquisar)
     .get('/prescricao-atualizada', routes.prescricaoAtualizada)
     .listen(settings.PORT, () => console.log('Servidor iniciado em http://localhost:' + settings.PORT))
 }
