@@ -6,7 +6,7 @@ module.exports = db => db.define('acolhido', {
     primaryKey: true,
     autoIncrement: true,
   },
-  nome: sequelize.STRING,
+  nomeAcolhido: sequelize.STRING,
   idade: sequelize.INTEGER,
   peso: sequelize.FLOAT,
   alergias: sequelize.STRING,

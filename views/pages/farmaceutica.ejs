@@ -12,33 +12,35 @@
     </div>
 
 
-    <%for (farmacia of prescricaoFarmacia){%>
+    <%for (farmacia of prescricao){%>
+        <%for (medicamento of farmacia.medicamentos){%>
         <tr>
             <td class="medicamento">
-                <%=farmacia.nomeMedicamento%>
+                <%=medicamento.nomeMedicamento%>
             </td>
             <td>
-                <%=farmacia.via%>
+                <%=medicamento.via%>
             </td>
             <td>
-                <%=prescricao.intervalo%>
+                <%=farmacia.intervalo%>
             </td>
             <td>
-                <%=farmacia.formaFarmaceutica%>
+                <%=medicamento.formaFarmaceutica%>
             </td>
             <td>
-                <%=prescricao.horario%> 
+                <%=farmacia.horario%> 
             </td>
             <td>
-                <%=farmacia.lote%>
+                <%=medicamento.lote%>
             </td>
             <td>
-                <%=farmacia.validade%>
+                <%=medicamento.validade%>
             </td>
             <td>
                 <div class="input">
                     <input type="checkbox"> </div>
             </td>
         </tr>
+        <% } %>
         <% } %>
             </table>

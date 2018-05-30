@@ -38,26 +38,29 @@ const startApplication = () => {
     .get('/acolhido', routes.acolhido)
     .get('/lista-acolhidos', routes.listaAcolhidos)
     .get('/prescricaoAtualizada', routes.prescricaoAtualizada)
-    .get('/farmaceutica', routes.farmaceutica)
+    .get('/farmaceutica/:id', routes.farmaceutica)
     .get('/historico-prescricao', routes.historicoPrescricao)
     .listen(settings.PORT, () => console.log('Servidor iniciado em http://localhost:' + settings.PORT))
 }
 
 const criaExemplos = () => {
   models.Acolhido.create({
-    nome: 'Batatinha dois',
+    nomeAcolhido: 'Batatinha dois',
     idade: 15,
     peso: 12.4,
     alergias: 'Todas, vai morre',
-    viaAlimentacao: 'Braçal'
+    via_alimentacao: 'Braçal'
   }).then(acolhido => {
     models.Prescricao.create({
-      intervalo: '2h'
+      intervalo: '2h',
+      horario:'8h 16h'
     }).then(prescricao => {
       models.Medicamento.create({
-        nome: 'Paracetamol 500mg',
+        nomeMedicamento: 'Paracetamol 500mg',
         via: 'Oi',
-        formaFarmaceutica: 'Batata Doce + Frango'
+        formaFarmaceutica: 'Batata Doce + Frango',
+        lote: '548976',
+        validade: '15/12/2021'
       }).then(medicamento => {
         prescricao.addMedicamento(medicamento)
         acolhido.addPrescricao(prescricao)

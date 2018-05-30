@@ -6,9 +6,9 @@ const farmaceutica = (Prescricao, Medicamento) => (req, res) => {
       id: req.params.id
     },
     include: [Medicamento]
-  }).then(perscricao => {
-    console.log(prescricao)
-    res.render('pages/farmaceutica', { prescricaoFarmacia : farmacia.medicamentos, prescricao : prescricao})
+  }).then(prescricao => {
+    console.log(prescricao)    
+    res.render('pages/farmaceutica', { prescricaoFarmacia : prescricao.getMedicamento, prescricao : prescricao})
   })
 }
 

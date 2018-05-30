@@ -6,6 +6,7 @@ module.exports = db => db.define('medicamento', {
     primaryKey: true,
     autoIncrement: true,
   },
+  nomeMedicamento:sequelize.STRING,
   via: sequelize.STRING,
   formaFarmaceutica: sequelize.STRING,
   validade: sequelize.STRING,
