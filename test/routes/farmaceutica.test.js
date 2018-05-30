@@ -3,28 +3,19 @@ const prescr = require("../../src/routes/farmaceutica")
 describe('Quando acesso a pagina da farmaceutica', () => {
     it('Deve mostrar uma prescricao com complementacoes', (done) => {
         const Prescricao = {
+            where: 1,
+            id:1,
             findAll:jest.fn()
         }
-        const req = {}
+        const req = {params:{id:1}}
         const res = {render : jest.fn()}
-        const farmacia = [{ nomeMedicamento: 'Paracetamal' }, { via: 'oral' } ]
+        const prescricao = [{ nomeMedicamento: 'Paracetamal' }, { via: 'oral' } ]
         
-        Prescricao.findAll.mockResolvedValue(farmacia)
+        Prescricao.findAll.mockResolvedValue(prescricao)
 
         return prescr(Prescricao)(req,res)
-        .then(()=> expect(res.render).toBeCalledWith('pages/farmaceutica',{farmacia}))
+        .then(()=> expect(res.render).toBeCalledWith('pages/farmaceutica',{prescricao}))
         .then(done)
         .catch(done)
     })
 })
-
-// {
-//     medicamentos: 'Busonide 100mg',
-//     via: 'Oral',
-//     intervalo: '16-16h',
-//     formaFarmaceutica: 'gotas',
-//     horario:'8h 16h',
-//     lote: '1234',
-//     validade: '03/12/2019',
-//     dispensacao: false,
-// }
