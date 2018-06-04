@@ -10,4 +10,3 @@ module.exports = Medicamento => (req, res) => {
       res.render('pages/editarMedicamento', { medicamento })
     }).catch(err => console.log(err))  
   }
-  
