@@ -34,6 +34,7 @@ const startApplication = () => {
     .use('/', routes.applicationRoutes)
     .use('/acolhido', routes.acolhidoRoutes)
     .use('/acolhido/:acolhido_id/prescricao', routes.prescricaoRoutes)
+    .use('/medicamento',routes.medicamentoRoutes)
 
 
     .listen(settings.PORT, () =>
