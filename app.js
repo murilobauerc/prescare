@@ -34,12 +34,7 @@ const startApplication = () => {
     .set('views/pages', 'tabela-abas')
     .use('/', routes)
 
-    .get('/acolhido/:acolhido_id', routes.acolhido)
-    .post('/acolhido/:acolhido_id/prescricao', routes.createPrescricao)
-    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id', routes.getPrescricao)
-    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit', routes.editPrescricao)
-    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit', routes.updatePrescricao)
-    .delete('/acolhido/:acolhido_id/prescricao/:prescricao_id', routes.destroyPrescricao)
+ 
     
     .listen(settings.PORT, () =>
       console.log('Servidor iniciado em http://localhost:' + settings.PORT)
