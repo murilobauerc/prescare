@@ -6,18 +6,13 @@
       <label for="validade">Validade</label>
       <input type="date" name="validade" id="validade" value="<%= prescricao.validade %>">
       <input type="submit" value="Save">
-      <input type="submit" value="Excluir">
     </form>
   </div>
 
   <form action="/acolhido/<%= prescricao.acolhido_id %>" method="POST">
     <input type="submit" value="VOLTAR">
   </form>
-  <!-- AQUI O ERRO
-  <a href="/acolhido/<%= prescricao.acolhido_id %>/prescricao/<%= prescricao.id %>/delete">Remover</a>
-  <form action="/acolhido/<%= prescricao.acolhido_id %>/prescricao/<%= prescricao.id %>/destroy" method="post">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="<%= prescricao.id %>" value="">
+  
+  <form action="/acolhido/<%= prescricao.acolhido_id %>/prescricao/<%= prescricao.id %>" method="post">
     <input type="submit" value="Excluir">
   </form>
--->
