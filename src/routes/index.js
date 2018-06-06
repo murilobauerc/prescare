@@ -15,6 +15,11 @@ const getPrescricao = require('./prescricao/get')
 const destroyPrescricao = require('./prescricao/destroy')
 const updatePrescricao = require('./prescricao/update')
 
+const getMedicamento = require('./medicamento/get')
+const createMedicamento = require('./medicamento/create')
+const editMedicamento = require('./medicamento/edit')
+const updateMedicamento = require('./medicamento/update')
+
 const allRoutes = models => ({
   listaAcolhidos: listaAcolhidos(models.Acolhido),
   home: home(),
@@ -22,6 +27,11 @@ const allRoutes = models => ({
   acolhido: acolhido(models.Acolhido, models.Prescricao),
   prescricaoAtualizada: prescricaoAtualizada(tabelaFarmaceutica),
   farmaceutica: farmaceutica(dadosFarmacia),
+
+  medicamento: getMedicamento(models.Medicamento),
+  createMedicamento: createMedicamento(models.Medicamento),
+  editMedicamento: editMedicamento(models.Medicamento),
+  updateMedicamento:  updateMedicamento(models.Medicamento),
 
   createPrescricao: createPrescricao(models.Prescricao),
   editPrescricao: editPrescricao(models.Prescricao),

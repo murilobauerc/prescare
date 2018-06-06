@@ -10,16 +10,14 @@
     </form>
   </div>
 
-  <form action="<%= acolhido.id %>/prescricao/<%= prescricao.id%>/edit" method="POST">
-    <input type="submit" value="ATUALIZAR">
+  <form action="/acolhido/<%= prescricao.acolhido_id %>" method="POST">
+    <input type="submit" value="VOLTAR">
   </form>
-
-    <!-- <%for (prescricao of presc){%>
-        - Prescrição -
-        <br> Id:
-        <%= prescricao.id %>
-            <br> Intervalo:
-            <%= prescricao.intervalo%>
-                <br> Acolhido id:
-                <%= prescricao.acolhido_id%>
-                    <%}%> -->
+  <!-- AQUI O ERRO
+  <a href="/acolhido/<%= prescricao.acolhido_id %>/prescricao/<%= prescricao.id %>/delete">Remover</a>
+  <form action="/acolhido/<%= prescricao.acolhido_id %>/prescricao/<%= prescricao.id %>/destroy" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="<%= prescricao.id %>" value="">
+    <input type="submit" value="Excluir">
+  </form>
+-->

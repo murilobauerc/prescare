@@ -42,13 +42,18 @@ const startApplication = () => {
     .get('/prescricao-atualizada', routes.prescricaoAtualizada)
     .get('/farmaceutica', routes.farmaceutica)
 
+    .get('/medicamento/:medicamento_id', routes.medicamento)
+    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento', routes.createMedicamento)
+    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento/:medicamento_id/edit', routes.editMedicamento)
+    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento/:medicamento_id/edit', routes.updateMedicamento)
+
     .get('/acolhido/:acolhido_id', routes.acolhido)
     .post('/acolhido/:acolhido_id/prescricao', routes.createPrescricao)
     .get('/acolhido/:acolhido_id/prescricao/:prescricao_id', routes.getPrescricao)
     .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit', routes.editPrescricao)
     .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit', routes.updatePrescricao)
     .delete('/acolhido/:acolhido_id/prescricao/:prescricao_id', routes.destroyPrescricao)
-    
+
     .listen(settings.PORT, () =>
       console.log('Servidor iniciado em http://localhost:' + settings.PORT)
     );
