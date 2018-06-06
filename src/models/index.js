@@ -2,18 +2,27 @@ const acolhido = require('./acolhido')
 const medicamento = require('./medicamento')
 const dieta = require('./dieta')
 const prescricao = require('./prescricao')
+const cuidado = require('./cuidado')
+const usuario = require('./usuario')
+
 
 module.exports = db => {
   const Acolhido = acolhido(db)
   const Medicamento = medicamento(db)
   const Dieta = dieta(db)
   const Prescricao = prescricao(db)
+  const Cuidado = cuidado(db)
+  const Usuario = usuario(db)
 
-  Prescricao.hasMany(Medicamento)
-  Medicamento.belongsTo(Prescricao)
-  Dieta.belongsTo(Prescricao)
-  Acolhido.hasMany(Prescricao)
   Prescricao.belongsTo(Acolhido)
+  Prescricao.hasMany(Medicamento)
+  Acolhido.hasMany(Prescricao)
+  Medicamento.belongsTo(Prescricao)
+  Cuidado.belongsTo(Prescricao)
+  Dieta.belongsTo(Prescricao)
+  Prescricao.belongsToMany(Usuario,{through:'usuario_prescricao'})
+  Prescricao.hasMany(Cuidado)
+  Prescricao.hasMany(Dieta)
 
-  return {Acolhido, Medicamento, Dieta, Prescricao}
+  return {Acolhido, Medicamento, Prescricao, Cuidado, Dieta}
 }

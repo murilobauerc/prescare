@@ -12,7 +12,13 @@ const tabelaFarmaceutica = require('./src/mocks/tabelaFarmaceutica')
 const settings = require('./settings')
 const app = express()
 
-const databaseConnection = new Sequelize(settings.DATABASE_URL, {dialect: 'postgres'})
+const databaseConnection = new Sequelize(settings.DATABASE_URL, {
+  dialect: 'postgres',
+  define: {
+    underscored: true,
+    timestamps: false,
+  }
+})
 
 const models = modelsInitializer(databaseConnection)
 const routes = routesInitializer(models)
