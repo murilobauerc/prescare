@@ -1,4 +1,4 @@
-const acolhidoRoute = require("../../src/routes/acolhido/get")
+const acolhidoRoutes = require("../../src/routes/acolhido/get")
 
 describe('Quando acesso acolhido', () => {
     it('Deve mostrar pagina com prescrição e suas abas atualizaveis', (done) => {
@@ -11,7 +11,7 @@ describe('Quando acesso acolhido', () => {
         const acolhido = { nome: 'Leo', id: '1', idade: 'Luna' , peso: 'Luna' , alergias: 'Luna' , via_alimentacao: 'Luna' }
         Acolhido.findOne.mockResolvedValue(acolhido);
 
-        return acolhidoRoute(Acolhido)(req, res)
+        return acolhidoRoutes(Acolhido)(req, res)
         .then(() => expect(Acolhido.findOne).toBeCalledWith( {'where': {'id': req.params.acolhido_id }}))
         .then(() => expect(res.render).toBeCalledWith('pages/info', { acolhido }))
         .then(done)
