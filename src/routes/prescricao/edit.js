@@ -6,8 +6,10 @@ module.exports = (Prescricao)  => (req, res) => {
     }
   })
   .then(prescricao => {
-    if(!prescricao) res.redirect('/404')
-
-    res.render('pages/editarPrescricao', { prescricao, updateUrl: req.originalUrl })
+    res.render('pages/editarPrescricao', { 
+      prescricao, 
+      acolhidoId: req.params.acolhido_id, 
+      updateUrl: req.originalUrl 
+    })
   })
 }

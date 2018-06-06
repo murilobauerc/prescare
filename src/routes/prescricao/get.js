@@ -5,6 +5,6 @@ module.exports = Prescricao => (req, res) => {
       id: req.params_id
     }
   }).then(prescricao => {
-  res.render('pages/prescricao', { prescricao })
+    res.render('pages/prescricao', { prescricao })
   }).catch(err => console.log(err))  
 }

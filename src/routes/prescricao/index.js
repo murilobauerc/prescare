@@ -6,11 +6,11 @@ const destroy = require('./destroy')
 const update = require('./update')
 
 module.exports = Prescricao => {
-  router.post('/', create(Prescricao))
-  router.get('/:prescricao_id', get(Prescricao))
-  router.get('/:prescricao_id/edit', edit(Prescricao))
-  router.post('/:prescricao_id/edit', update(Prescricao))
-  router.delete('/:prescricao_id/destroy', destroy(Prescricao))
+  router.post('/:acolhido_id/prescricao', create(Prescricao))
+  router.get('/:acolhido_id/prescricao/:prescricao_id', get(Prescricao))
+  router.get('/:acolhido_id/prescricao/:prescricao_id/edit', edit(Prescricao))
+  router.post('/:acolhido_id/prescricao/:prescricao_id/edit', update(Prescricao))
+  router.delete('/:acolhido_id/prescricao/:prescricao_id/destroy', destroy(Prescricao))
 
   return router;
 }
