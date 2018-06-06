@@ -21,6 +21,11 @@ const createMedicamento = require('./medicamento/create')
 const editMedicamento = require('./medicamento/edit')
 const updateMedicamento = require('./medicamento/update')
 
+const getDieta = require('./dieta/get')
+const createDieta = require('./dieta/create')
+const editDieta = require('./dieta/edit')
+const updateDieta = require('./dieta/update')
+
 const allRoutes = models => ({
   listaAcolhidos: listaAcolhidos(models.Acolhido),
   home: home(),
@@ -38,7 +43,12 @@ const allRoutes = models => ({
   editPrescricao: editPrescricao(models.Prescricao),
   getPrescricao: getPrescricao(models.Prescricao),
   destroyPrescricao: destroyPrescricao(models.Prescricao),
-  updatePrescricao: updatePrescricao(models.Prescricao)
+  updatePrescricao: updatePrescricao(models.Prescricao),
+
+  dieta: getDieta(models.Dieta),
+  createDieta: createDieta(models.Dieta),
+  editDieta: editDieta(models.Dieta),
+  updateDieta: updateDieta(models.Dieta)
 })
 
 module.exports = allRoutes

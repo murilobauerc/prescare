@@ -47,6 +47,11 @@ const startApplication = () => {
     .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento/:medicamento_id/edit', routes.editMedicamento)
     .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento/:medicamento_id/edit', routes.updateMedicamento)
 
+    .get('/dieta/:dieta_id', routes.dieta)
+    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/dieta', routes.createDieta)
+    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/dieta/:dieta_id/edit', routes.editDieta)
+    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/dieta/:dieta_id/edit', routes.updateDieta)
+
     .get('/acolhido/:acolhido_id', routes.acolhido)
     .post('/acolhido/:acolhido_id/prescricao', routes.createPrescricao)
     .get('/acolhido/:acolhido_id/prescricao/:prescricao_id', routes.getPrescricao)
