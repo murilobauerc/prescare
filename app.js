@@ -31,17 +31,7 @@ const startApplication = () => {
     }))
     .set('view engine', 'ejs')
     .set('views/pages', 'tabela-abas')
-    .use('/', routes.applicationRoutes)
-    .use('/acolhido', routes.acolhidoRoutes)
-    .use('/acolhido/:acolhido_id/prescricao', routes.prescricaoRoutes)
-
-    .get('/acolhido/:acolhido_id', routes.acolhido)
-    .post('/acolhido/:acolhido_id/prescricao', routes.createPrescricao)
-    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id', routes.getPrescricao)
-    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit', routes.editPrescricao)
-    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit', routes.updatePrescricao)
-    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id', routes.destroyPrescricao)
-
+    .use('/', routes)
 
     .listen(settings.PORT, () =>
       console.log('Servidor iniciado em http://localhost:' + settings.PORT)
