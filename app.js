@@ -31,31 +31,7 @@ const startApplication = () => {
     }))
     .set('view engine', 'ejs')
     .set('views/pages', 'tabela-abas')
-
-    .get('/login', (req, res) => {
-      res.render('pages/login');
-    })
-    .get('/pesquisar', (req, res) => {
-      res.render('pages/pesquisa-acolhidos');
-    })
-    .get('/historico', (req, res) => {
-      res.render('pages/historico-prescricao');
-    })
-    .get('/', routes.home)
-    .get('/about', routes.about)
-    .get('/lista-acolhidos', routes.listaAcolhidos)
-    .get('/prescricao-atualizada', routes.prescricaoAtualizada)
-    .get('/farmaceutica', routes.farmaceutica)
-
-    .get('/medicamento/:medicamento_id', routes.medicamento)
-    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento', routes.createMedicamento)
-    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento/:medicamento_id/edit', routes.editMedicamento)
-    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/medicamento/:medicamento_id/edit', routes.updateMedicamento)
-
-    .get('/dieta/:dieta_id', routes.dieta)
-    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/dieta', routes.createDieta)
-    .get('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/dieta/:dieta_id/edit', routes.editDieta)
-    .post('/acolhido/:acolhido_id/prescricao/:prescricao_id/edit/dieta/:dieta_id/edit', routes.updateDieta)
+    .use('/', routes)
 
     .get('/acolhido/:acolhido_id', routes.acolhido)
     .post('/acolhido/:acolhido_id/prescricao', routes.createPrescricao)
