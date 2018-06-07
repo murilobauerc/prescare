@@ -10,7 +10,4 @@ module.exports = db => db.define('medicamento', {
   validade: sequelize.STRING,
   lote: sequelize.STRING,
   tipo: sequelize.STRING
-},
-{
-  underscored: true
 })

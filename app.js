@@ -3,12 +3,11 @@ const bodyParser = require('body-parser')
 
 const expressLayouts = require('express-ejs-layouts')
 const ejs = require('ejs')
-const acolhido = require('./public/js/acolhido.js')
+
 const Sequelize = require('sequelize')
 const routesInitializer = require('./src/routes')
 const modelsInitializer = require('./src/models')
 
-const tabelaFarmaceutica = require('./src/mocks/tabelaFarmaceutica')
 const settings = require('./settings')
 const app = express()
 
