@@ -1,4 +1,4 @@
-const medicamentoRoute = require("../../src/routes/medicamento/get")
+const medicamentoRoute = require("../../../src/routes/medicamento/get")
 
 describe('Quando acesso medicamento', () => {
     it('Deve mostrar pagina com informações do medicamento', (done) => {
