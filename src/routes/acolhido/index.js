@@ -1,9 +1,9 @@
 const get = require('./get')
-const list = require('./list')
+const list = require('./listaAcolhidos')
 
 module.exports = (Acolhido, router) => {
   router.get('/acolhido/:acolhido_id', get(Acolhido))
-  router.get('/acolhido/list', list(Acolhido))
+  router.get('/acolhido/listaAcolhidos', list(Acolhido))
 
   return router;
 }

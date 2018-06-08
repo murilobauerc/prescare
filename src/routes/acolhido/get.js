@@ -1,4 +1,4 @@
-const acolhido = (acolhido) => (req, res) => {
+module.exports = acolhido => (req, res) => {
     return acolhido
         .findOne({
             where: { id: req.params.acolhido_id }
@@ -8,5 +8,3 @@ const acolhido = (acolhido) => (req, res) => {
         })
         .catch(console.log)  
 }
-
-module.exports = acolhido
