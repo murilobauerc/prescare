@@ -1,6 +1,6 @@
 <%- contentFor('body') %>
   <div>
-    <form >
+    <form>
       <label for="medicamento">Medicamentos</label>
       <table class="tabelaPrescricao">
 
@@ -12,34 +12,31 @@
       </table>
     </form>
 
-    <form >
+    <form>
       <label for="cuidado">Cuidados</label>
       <table class="tabelaPrescricao">
-      <th>Descrição</th>
-      <th>Intervalo</th>
-      <th>Observações</th>
+        <th>Descrição</th>
+        <th>Intervalo</th>
+        <th>Observações</th>
       </table>
     </form>
 
-    <form >
-        <label for="dieta">Dieta</label>
-        <table class="tabelaPrescricao">
+    <form>
+      <label for="dieta">Dieta</label>
+      <table class="tabelaPrescricao">
         <th>Tipo</th>
         <th>Intervalo</th>
-        </table>
-      </form>
+      </table>
+    </form>
 
     <form action="<%= updateUrl %>" method="POST">
       <label for="validade">Validade</label>
       <input type="date" name="validade" id="validade" value="<%= prescricao.validade %>">
-      <input type="submit" value="Salvar"> 
+      <input type="submit" value="Salvar">
     </form>
 
   </div>
 
-  <form action="<%= updateUrl %>/medicamento" method="POST">
-    <input type="submit" value="Adicionar medicamento">
-  </form>
   <form action="<%= updateUrl %>/dieta" method="POST">
-      <input type="submit" value="Adicionar dieta">  
-    </form>
+    <input type="submit" value="Adicionar dieta">
+  </form>

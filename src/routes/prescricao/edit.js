@@ -6,6 +6,10 @@ module.exports = (Prescricao)  => (req, res) => {
     }
   })
   .then(prescricao => {
-    res.render('pages/editarPrescricao', { prescricao, updateUrl: req.originalUrl })
+    res.render('pages/editarPrescricao', { 
+      prescricao, 
+      updateUrl: req.originalUrl,
+      acolhidoId: req.params.acolhido_id,
+     })
   })
 }
